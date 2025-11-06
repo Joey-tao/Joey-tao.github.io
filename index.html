@@ -227,7 +227,7 @@
                         <!-- *** ACTION REQUIRED: Place your CV at 'assets/pdf/QiaoYitao_CV.pdf' *** -->
                         <a href="assets/pdf/QiaoYitao_CV.pdf" target="_blank">[CV]</a>
                         <a href="mailto:scutautojoey@gmail.com">[Email]</a>
-                        <!-- *** ACTION REQUIRED: Add your GitHub link *** -->
+                        <!-- *** GitHub Link Updated *** -->
                         <a href="https://github.com/Joey-tao" target="_blank">[Github]</a>
                     </div>
                 </div>
@@ -420,24 +420,34 @@
             <h3 class="section-title"><i class="fas fa-flask"></i> Selected Projects</h3>
             <p>Here are a few projects I've worked on. Click to see details or watch a demo.</p>
 
-            <!-- Project 1: Airport System -->
+            <!-- Project 1: Airport System (Changed to 2-image carousel) -->
             <div class="project-item" id="project-airport">
                 <div class="row">
                     <div class="col-md-4">
-                        <!-- *** ACTION REQUIRED: Place your video poster at 'assets/images/project1_airport_poster.jpg' *** -->
-                        <!-- *** ACTION REQUIRED: Place your video at 'assets/videos/project1_airport_demo.mp4' *** -->
-                        <video class="project-video" controls poster="assets/images/project1_airport_poster.jpg">
-                            <source src="assets/videos/project1_airport_demo.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        <!-- *** This is now a 2-image carousel *** -->
+                        <div id="carousel-proj1" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-proj1" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-proj1" data-slide-to="1"></li>
+                            </ol>
+                            <div class="carousel-inner rounded shadow-sm">
+                                <!-- *** ACTION REQUIRED: Place project image at 'assets/images/project1_airport_1.jpg' *** -->
+                                <div class="carousel-item active">
+                                    <img src="assets/images/project1_airport_1.jpg" class="d-block w-100 project-carousel-image" alt="Airport System Image 1" onerror="this.onerror=null;this.src='https://placehold.co/300x215/EFEFEF/AAAAAA?text=Airport+Image+1';">
+                                </div>
+                                <!-- *** ACTION REQUIRED: Place project image at 'assets/images/project1_airport_2.jpg' *** -->
+                                <div class="carousel-item">
+                                    <img src="assets/images/project1_airport_2.jpg" class="d-block w-100 project-carousel-image" alt="Airport System Image 2" onerror="this.onerror=null;this.src='https://placehold.co/300x215/EFEFEF/AAAAAA?text=Airport+Image+2';">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-8">
                         <h4>Guangzhou Baiyun Airport Flight Node Guarantee System</h4>
                         <p>
                             This system provides intelligent guarantees for flight nodes at Guangzhou Baiyun Airport. Key technologies include multi-object tracking, pedestrian detection, small object recognition, and pedestrian re-identification.
                         </p>
-                        <!-- *** ACTION REQUIRED: Add link to project details page (optional) *** -->
-                        <a href="#" class="btn btn-secondary btn-sm">[Project Details]</a>
+                        <!-- [Project Details] button removed -->
                     </div>
                 </div>
             </div>
@@ -472,8 +482,7 @@
                         <p>
                             A commercialized multimodal biometric system based on hand features (palm print, vein, geometry). This project represents a comprehensive application of software, hardware, algorithms, and embedded systems.
                         </p>
-                         <!-- *** ACTION REQUIRED: Add link to project details page (optional) *** -->
-                         <a href="#" class="btn btn-secondary btn-sm">[Project Details]</a>
+                         <!-- [Project Details] button removed -->
                     </div>
                 </div>
             </div>
