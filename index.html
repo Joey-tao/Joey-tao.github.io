@@ -1,390 +1,470 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yitao Qiao | Computer Vision · Multimodal · Embodied AI</title>
-  <meta name="description" content="Personal homepage of Yitao Qiao — computer vision, multimodal learning, vision-language-action (VLA), embodied AI, long-video understanding, trustworthy multimodal systems." />
-  <meta property="og:title" content="Yitao Qiao — CV · Multimodal · Embodied AI" />
-  <meta property="og:description" content="B.Eng. & M.Eng. (SCUT). TPAMI first-author. VLA & embodied robotics, long-video understanding, trustworthy multimodal systems." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/preview.png" />
-  <meta name="color-scheme" content="light dark" />
-  <style>
-    :root{
-      --bg:#0b0c10; --fg:#e9ecef; --muted:#adb5bd; --accent:#67e8f9; --accent2:#a78bfa; --card:#121319; --link:#7dd3fc;
-      --shadow:0 10px 25px rgba(0,0,0,.25);
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#ffffff; --fg:#111827; --muted:#6b7280; --card:#f8fafc; --link:#2563eb; --accent:#06b6d4; --accent2:#7c3aed; }
-    }
-    *{ box-sizing:border-box }
-    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji" }
-    a{ color:var(--link); text-decoration:none }
-    a:hover{ text-decoration:underline }
-    .wrap{ max-width:1000px; margin:0 auto; padding:24px }
-    header{ position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid color-mix(in oklab, var(--fg) 15%, transparent); z-index:10 }
-    nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0 }
-    .brand{ font-weight:700; letter-spacing:.2px }
-    .nav a{ margin-left:14px; font-weight:600; opacity:.9 }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yitao Qiao - Personal Homepage</title>
+    
+    <!-- Bootstrap CSS (From the reference website's style) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
+    <!-- Font Awesome Icons (For section titles) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Google Fonts (From the reference website's style) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Custom CSS, strictly following the reference style --- */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px; /* Common width for academic homepages */
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .profile-pic {
+            max-width: 220px;
+            height: auto;
+            border: 5px solid #f0f0f0;
+        }
+        .profile-info h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+        .profile-info h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #555;
+            margin-top: 5px;
+        }
+        .profile-info p {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        .social-links a {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .social-links a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
 
-    .hero{ display:grid; grid-template-columns: 140px 1fr; gap:20px; align-items:center; padding:28px 0 8px }
-    .avatar{ width:120px; height:120px; border-radius:20px; background:linear-gradient(120deg,var(--accent),var(--accent2)); box-shadow:var(--shadow); display:grid; place-items:center; color:#000; font-weight:800 }
-    .hero h1{ margin:.1rem 0 .2rem; font-size:clamp(24px,3.2vw,36px) }
-    .hero .tagline{ color:var(--muted); margin:0 0 .6rem }
-    .cta{ display:flex; gap:10px; flex-wrap:wrap }
-    .btn{ display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 15%, transparent); background:var(--card); color:var(--fg); box-shadow:var(--shadow); font-weight:700 }
-    .btn:hover{ transform:translateY(-1px) }
+        /* Section Titles */
+        h3.section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            margin-top: 30px;
+        }
+        h3.section-title i {
+            margin-right: 10px;
+            color: #007bff;
+        }
 
-    section{ margin:28px 0 }
-    h2{ margin:0 0 10px; font-size:clamp(20px,2.6vw,28px) }
-    .card{ background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 15%, transparent); border-radius:16px; padding:16px; box-shadow:var(--shadow) }
-    .grid{ display:grid; gap:14px }
-    .grid.cols-2{ grid-template-columns: 1fr }
-    @media(min-width:860px){ .grid.cols-2{ grid-template-columns: 1fr 1fr } }
+        /* About Me */
+        .about-me p {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
 
-    ul.inline>li{ margin:4px 0 }
-    .meta{ color:var(--muted); font-size:.95rem }
-    footer{ margin:40px 0 10px; color:var(--muted); font-size:.95rem }
-    code{ background:color-mix(in oklab, var(--fg) 12%, transparent); padding:.1em .35em; border-radius:6px }
-      /* Publications grid */
-    .pub-grid{ display:grid; gap:16px; grid-template-columns: 1fr }
-    @media(min-width:860px){ .pub-grid{ grid-template-columns: 1fr 1fr } }
-    .pub{ display:grid; grid-template-columns: 180px 1fr; gap:14px; align-items:start }
-    .pub img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 12%, transparent); box-shadow:var(--shadow); background:#0a0a0a }
-    .pub h3{ margin:0 0 6px; font-size:clamp(16px,2.2vw,20px) }
-    .pub .meta{ margin:0 0 6px }
-  </style>
+        /* News List */
+        .news-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .news-list li {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        .news-list .date {
+            font-weight: 700;
+            color: #333;
+            min-width: 100px; /* Keep alignment */
+        }
+        .news-list .content {
+            color: #555;
+        }
+
+        /* Publication List */
+        .pub-item {
+            margin-bottom: 25px;
+        }
+        .pub-item .pub-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0056b3;
+        }
+        .pub-item .pub-authors {
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+        .pub-item .pub-journal {
+            font-style: italic;
+            color: #444;
+        }
+        .pub-item .pub-links a {
+            margin-right: 10px;
+            font-weight: 700;
+        }
+        /* Abstract Style */
+        .abstract {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            text-align: justify;
+            display: none; /* Hidden by default */
+        }
+        
+        /* Project List */
+        .project-item {
+            margin-bottom: 25px;
+        }
+        .project-item h4 {
+            font-weight: 700;
+            color: #0056b3;
+        }
+        /* Style for the video element */
+        .project-video {
+            width: 100%;
+            border-radius: 5px;
+            background-color: #000;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <div class="brand">Yitao Qiao</div>
-        <div class="nav">
-          <a href="#about">About</a>
-          <a href="#news">News</a>
-          <a href="#pubs">Publications</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#">Yitao Qiao</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#about">About Me <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#publications">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
-    </div>
-  </header>
+    </nav>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="avatar">YQ</div>
-      <div>
-        <h1>Yitao Qiao (乔义滔)</h1>
-        <p class="tagline">Computer Vision · Multimodal Learning · Vision–Language–Action (VLA) · Embodied AI</p>
-        <div class="cta">
-          <a class="btn" href="assets/Yitao_Qiao_CV_TPAMI.pdf" target="_blank" rel="noopener">Download CV</a>
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn" href="#pubs">Selected Publications</a>
-        </div>
-      </div>
-    </section>
+    <!-- Main Content -->
+    <div class="container">
 
-    <section id="about" class="card">
-      <h2>About</h2>
-      <p>
-        I received the B.Eng. and M.Eng. degrees from <strong>South China University of Technology (SCUT)</strong>.
-        My research interests span <strong>computer vision</strong> and <strong>multimodal learning</strong>, with recent focus on
-        <strong>VLA for embodied robots</strong>, <strong>long-video understanding</strong>, and <strong>trustworthy multimodal systems</strong>.
-      </p>
-      <p>
-        I published a <strong>first-author paper in IEEE TPAMI</strong>, with additional works in <strong>IEEE TIFS</strong> and <strong>IJCV</strong>.
-        On the engineering side, I built a <strong>synchronous NIR/visible imaging device</strong> and a <strong>157,500-image multimodal hand dataset</strong> with pixel-level masks, and helped deploy a <strong>real-time multi-object tracking system</strong> for airport operations.
-      </p>
-      <p class="meta">Keywords: VLA · Dexterous Manipulation · Multimodal Video · Robustness & Safety · Perception & Control</p>
-    </section>
+        <!-- 1. Profile Section -->
+        <section class="profile-section">
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center text-md-left">
+                    <!-- Placeholder for your profile picture -->
+                    <!-- *** ACTION REQUIRED: Place your photo at 'assets/images/profile_pic.jpg' *** -->
+                    <img src="assets/images/profile_pic.jpg" 
+                         alt="Yitao Qiao" 
+                         class="img-fluid rounded-circle profile-pic"
+                         onerror="this.onerror=null;this.src='https://placehold.co/220x220/EFEFEF/AAAAAA?text=Yitao+Qiao';">
+                </div>
+                <div class="col-md-9 profile-info text-center text-md-left">
+                    <h1>Yitao Qiao (乔伊涛)</h1>
+                    <h2>Master's Degree in Electronic Information</h2>
+                    <p>School of Electronic and Information Engineering</p>
+                    <p>South China University of Technology (SCUT)</p>
+                    <div class="social-links">
+                        <!-- *** ACTION REQUIRED: Place your CV at 'assets/pdf/QiaoYitao_CV.pdf' *** -->
+                        <a href="assets/pdf/QiaoYitao_CV.pdf" target="_blank">[CV]</a>
+                        <a href="mailto:scutautojoey@gmail.com">[Email]</a>
+                        <!-- *** ACTION REQUIRED: Add your Google Scholar link *** -->
+                        <a href="#" target="_blank">[Google Scholar]</a>
+                        <!-- *** ACTION REQUIRED: Add your GitHub link *** -->
+                        <a href="#" target="_blank">[Github]</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="news" class="card">
-      <h2>News</h2>
-      <ul class="inline">
-        <li><strong>[YYYY.MM]</strong> — Paper <em>accepted</em> to <strong>IEEE TPAMI</strong> (first author). <span class="meta">Update month/year.</span></li>
-        <li><strong>[YYYY.MM]</strong> — Paper accepted to <strong>IEEE TIFS</strong>.</li>
-        <li><strong>[YYYY.MM]</strong> — Paper accepted to <strong>IJCV</strong>.</li>
-      </ul>
-    </section>
+        <!-- 2. About Me -->
+        <section id="about" class="about-me">
+            <h3 class="section-title"><i class="fas fa-user-circle"></i> About Me</h3>
+            <p>
+                I am Yitao Qiao, a recent graduate (June 2024) with a Master's degree in Electronic Information from the South China University of Technology (SCUT), where I was advised by <a href="#">Prof. Wenxiong Kang</a>. I also received my Bachelor's degree in Automation from SCUT in 2021.
+            </p>
+            <p>
+                My research interests lie in computer vision, biometrics, and multimodal learning. I am dedicated to developing more accurate and secure multimodal biometric authentication technologies. I have published several papers in top-tier journals, including IEEE TPAMI, TIFS, and IJCV.
+            </p>
+        </section>
 
-    <section id="pubs" class="card">
-      <h2>Selected Publications</h2>
-      <div class="pub-grid">
-        <div class="pub">
-          <img src="assets/papers/tpami_cover.jpg" alt="TPAMI paper cover" />
-          <div>
-            <h3>[Paper Title Placeholder] <span class="meta">TPAMI — First Author</span></h3>
-            <p class="meta">IEEE Transactions on Pattern Analysis and Machine Intelligence.</p>
-            <p>One-sentence summary of the contribution (e.g., multimodal hand analysis / robust biometrics). Replace with your official abstract snippet.</p>
-            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
-          </div>
-        </div>
-        <div class="pub">
-          <img src="assets/papers/tifs_cover.jpg" alt="TIFS paper cover" />
-          <div>
-            <h3>[Paper Title Placeholder] <span class="meta">IEEE TIFS</span></h3>
-            <p class="meta">IEEE Transactions on Information Forensics and Security.</p>
-            <p>One-sentence summary (e.g., robust recognition under poor quality or uncooperative settings). Replace with your official summary.</p>
-            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
-          </div>
-        </div>
-        <div class="pub">
-          <img src="assets/papers/ijcv_cover.jpg" alt="IJCV paper cover" />
-          <div>
-            <h3>[Paper Title Placeholder] <span class="meta">IJCV</span></h3>
-            <p class="meta">International Journal of Computer Vision.</p>
-            <p>One-sentence summary (e.g., computer vision method/benchmark). Replace with your official summary.</p>
-            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
-          </div>
-        </div>
-      </div>
-      <p class="meta">Add more items by copying a <code>.pub</code> block. Place cover images in <code>assets/papers/</code> (4:3 or 16:9 works).</p>
-    </section>
+        <!-- 3. News -->
+        <section id="news">
+            <h3 class="section-title"><i class="fas fa-bullhorn"></i> News</h3>
+            <ul class="news-list">
+                <li>
+                    <span class="date">[2024.06]</span>
+                    <span class="content">Honored as "Outstanding Graduate in Professional Practice" by SCUT.</span>
+                </li>
+                <li>
+                    <span class="date">[YYYY.MM]</span>
+                    <span class="content">One paper "LA3M..." was accepted by <strong>International Journal of Computer Vision (IJCV)</strong>.</span>
+                </li>
+                 <li>
+                    <span class="date">[YYYY.MM]</span>
+                    <span class="content">One paper "Palm Vein Recognition..." was accepted by <strong>IEEE Transactions on Information Forensics and Security (TIFS)</strong>.</span>
+                </li>
+                 <li>
+                    <span class="date">[YYYY.MM]</span>
+                    <span class="content">One paper "Normalized-Full-Palmar-Hand..." was accepted by <strong>IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</strong>.</span>
+                </li>
+                <li>
+                    <span class="date">[2022.10]</span>
+                    <span class="content">Awarded the <strong>National Scholarship</strong> for Graduate Students (Top 2% nationwide).</span>
+                </li>
+                <li>
+                    <span class="date">[2021.10]</span>
+                    <span class="content">Won the <strong>Bronze Award</strong> at the 7th China "Internet+" Innovation and Entrepreneurship Competition (National Level).</span>
+                </li>
+            </ul>
+        </section>
 
-    <section id="projects" class="card">
-      <h2>Selected Projects</h2>
-      <div class="grid cols-2">
-        <div>
-          <h3>VLA for Embodied Robots (Reproductions)</h3>
-          <p>Reproduced <em>Pi0</em>, <em>DexGraspVLA</em>, and <em>ManiFlow</em> across Realman/Piper arms and dexterous hands (DexHand‑021; Inspired (Yinshi) Hand); built end‑to‑end evaluation pipelines combining language instructions, perception, and control.</p>
-          <p class="meta">Skills: PyTorch · RL/IL · ROS/MoveIt · calibration · sim2real</p>
-        </div>
-        <div>
-          <h3>Multispectral Hand Imaging & Dataset</h3>
-          <p>Designed a synchronized NIR/visible imaging device and built a 157,500‑image multimodal hand dataset with pixel‑level masks and standardized annotations; trained lightweight real‑time segmentation/normalization models.</p>
-          <p class="meta">Skills: imaging hardware · data collection · annotation tools · model compression</p>
-        </div>
-        <div>
-          <h3>Airport Real‑Time Multi‑Object Tracking</h3>
-          <p>Developed and deployed a real‑time MOT system for airport operations (vehicles/passenger flows); emphasis on stability, latency control, and maintainability under distribution shift.</p>
-          <p class="meta">Skills: tracking · real‑time video · MLOps · metrics & monitoring</p>
-        </div>
-        <div>
-          <h3>Trustworthy Multimodal Evaluation</h3>
-          <p>Practical evaluation of VLM/VLA robustness and safety under distribution shifts, distractors, and physical perturbations; design of stress tests and automatic failure detection.</p>
-          <p class="meta">Skills: benchmarking · robustness · safety · data curation</p>
-        </div>
-      </div>
-    </section>
+        <!-- 4. Publications -->
+        <section id="publications">
+            <h3 class="section-title"><i class="fas fa-book-open"></i> Publications</h3>
+            <p>(* indicates equal contribution, <strong>Bold</strong> indicates myself.)</p>
 
-    <section class="card">
-      <h2>Experience (selected)</h2>
-      <ul class="inline">
-        <li><strong>Alibaba</strong> — Algorithm Intern (multimodal model evaluation & engineering).</li>
-        <li><strong>SCUT</strong> — Research on vision/biometrics, device & dataset building.</li>
-      </ul>
-    </section>
+            <!-- Publication 1 -->
+            <div class="pub-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- *** ACTION REQUIRED: Place your paper's image at 'assets/images/paper1_nfph.jpg' *** -->
+                        <img src="assets/images/paper1_nfph.jpg" 
+                             alt="NFPH Paper Figure" class="img-fluid rounded"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x150/EFEFEF/AAAAAA?text=Paper+1+Figure';">
+                    </div>
+                    <div class="col-md-9">
+                        <a href="#" class="pub-title">Normalized-Full-Palmar-Hand: Towards More Accurate Hand-Based Multimodal Biometrics</a>
+                        <div class="pub-authors">
+                            <strong>Yitao Qiao</strong>*, Wenxiong Kang*, Dacan Luo, Junduan Huang.
+                        </div>
+                        <div class="pub-journal">
+                            IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI) (CCF-A)
+                        </div>
+                        <div class="pub-links">
+                            <!-- *** ACTION REQUIRED: Add links to your PDF, Code, etc. *** -->
+                            <a href="#" target="_blank">[PDF]</a>
+                            <a href="#" target="_blank">[Code]</a>
+                            <a href="#" target="_blank">[Project]</a>
+                            <a href="javascript:void(0)" class="toggle-abstract" data-target="#abs-1">[Abstract]</a>
+                        </div>
+                        <div class="abstract" id="abs-1">
+                            <p><strong>Abstract:</strong> (This abstract is synthesized from your CV. Please replace with the official abstract.) 
+                            We proposed the "Normalized-Full-Palmar Hand" (NFPH) method, which decouples multiple hand biometric modalities, enabling comprehensive trait utilization for authentication. We designed and built a synchronous NIR and visible-light imaging device, enabling real-time dynamic hand positioning and clear multispectral imaging. We also released two open-access datasets (SCUT_NFPH_v1/v2), providing pixel-level full hand images, semantic masks, and normalized images, totaling 157,500 images. Furthermore, we introduced FPHandNet, a feature extraction and authentication network based on the NFPH method, and a lightweight Hand Segmentation and Alignment Network (HSANet) for real-time segmentation under diverse imaging conditions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:scutautojoey@gmail.com">scutautojoey@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/" target="_blank" rel="noopener">github.com/&lt;your-username&gt;</a></p>
-    </section>
+            <!-- Publication 2 -->
+            <div class="pub-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- *** ACTION REQUIRED: Place your paper's image at 'assets/images/paper2_vein.jpg' *** -->
+                        <img src="assets/images/paper2_vein.jpg" 
+                             alt="Palm Vein Paper Figure" class="img-fluid rounded"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x150/EFEFEF/AAAAAA?text=Paper+2+Figure';">
+                    </div>
+                    <div class="col-md-9">
+                        <a href="#" class="pub-title">Palm Vein Recognition under Unconstrained and Weak-cooperative Conditions</a>
+                        <div class="pub-authors">
+                            Dacan Luo, <strong>Yitao Qiao</strong>, Di Xie, Shifeng Zhang, Wenxiong Kang.
+                        </div>
+                        <div class="pub-journal">
+                            IEEE Transactions on Information Forensics and Security (TIFS) (CCF-A)
+                        </div>
+                        <div class="pub-links">
+                            <a href="#" target="_blank">[PDF]</a>
+                            <a href="#" target="_blank">[Code]</a>
+                            <a href="javascript:void(0)" class="toggle-abstract" data-target="#abs-2">[Abstract]</a>
+                        </div>
+                        <div class="abstract" id="abs-2">
+                            <p><strong>Abstract:</strong> (This is a placeholder abstract. Please replace with the official abstract.) 
+                            This paper investigates the problem of palm vein recognition in unconstrained and weak-cooperative scenarios. To address challenges such as varying hand postures and inconsistent acquisition distances in real-world applications, we propose a robust feature extraction and matching algorithm, significantly improving the system's accuracy and usability in complex environments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <footer>
-      © <span id="year"></span> Yitao Qiao · Built with GitHub Pages.
-    </footer>
-  </main>
+            <!-- Publication 3 -->
+            <div class="pub-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- *** ACTION REQUIRED: Place your paper's image at 'assets/images/paper3_la3m.jpg' *** -->
+                        <img src="assets/images/paper3_la3m.jpg" 
+                             alt="LA3M Paper Figure" class="img-fluid rounded"
+                             onerror="this.onerror=null;this.src='https://placehold.co/200x150/EFEFEF/AAAAAA?text=Paper+3+Figure';">
+                    </div>
+                    <div class="col-md-9">
+                        <a href="#" class="pub-title">LA3M: Linear Adaptive Additive Angular Margin Loss for Video-based Hand Gesture Authentication</a>
+                        <div class="pub-authors">
+                            Wenwei Song, Wenxiong Kang, Adams Wai-Kin Kong, Yufeng Zhang, <strong>Yitao Qiao</strong>.
+                        </div>
+                        <div class="pub-journal">
+                            International Journal of Computer Vision (IJCV) (CCF-A)
+                        </div>
+                        <div class="pub-links">
+                            <a href="#" target="_blank">[PDF]</a>
+                            <a href="#" target="_blank">[Code]</a>
+                            <a href="javascript:void(0)" class="toggle-abstract" data-target="#abs-3">[Abstract]</a>
+                        </div>
+                        <div class="abstract" id="abs-3">
+                            <p><strong>Abstract:</strong> (This is a placeholder abstract. Please replace with the official abstract.) 
+                            This paper introduces LA3M (Linear Adaptive Additive Angular Margin Loss), a novel loss function designed for video-based hand gesture authentication. This loss function adaptively adjusts the angular margin, enhancing intra-class compactness and inter-class separability, thereby achieving state-of-the-art performance in dynamic and complex hand gesture video authentication tasks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yitao Qiao | Computer Vision · Multimodal · Embodied AI</title>
-  <meta name="description" content="Personal homepage of Yitao Qiao — computer vision, multimodal learning, vision-language-action (VLA), embodied AI, long-video understanding, trustworthy multimodal systems." />
-  <meta property="og:title" content="Yitao Qiao — CV · Multimodal · Embodied AI" />
-  <meta property="og:description" content="B.Eng. & M.Eng. (SCUT). TPAMI first-author. VLA & embodied robotics, long-video understanding, trustworthy multimodal systems." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/preview.png" />
-  <meta name="color-scheme" content="light dark" />
-  <style>
-    :root{
-      --bg:#0b0c10; --fg:#e9ecef; --muted:#adb5bd; --accent:#67e8f9; --accent2:#a78bfa; --card:#121319; --link:#7dd3fc;
-      --shadow:0 10px 25px rgba(0,0,0,.25);
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#ffffff; --fg:#111827; --muted:#6b7280; --card:#f8fafc; --link:#2563eb; --accent:#06b6d4; --accent2:#7c3aed; }
-    }
-    *{ box-sizing:border-box }
-    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji" }
-    a{ color:var(--link); text-decoration:none }
-    a:hover{ text-decoration:underline }
-    .wrap{ max-width:1000px; margin:0 auto; padding:24px }
-    header{ position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid color-mix(in oklab, var(--fg) 15%, transparent); z-index:10 }
-    nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0 }
-    .brand{ font-weight:700; letter-spacing:.2px }
-    .nav a{ margin-left:14px; font-weight:600; opacity:.9 }
+        </section>
 
-    .hero{ display:grid; grid-template-columns: 140px 1fr; gap:20px; align-items:center; padding:28px 0 8px }
-    .avatar{ width:120px; height:120px; border-radius:20px; background:linear-gradient(120deg,var(--accent),var(--accent2)); box-shadow:var(--shadow); display:grid; place-items:center; color:#000; font-weight:800 }
-    .hero h1{ margin:.1rem 0 .2rem; font-size:clamp(24px,3.2vw,36px) }
-    .hero .tagline{ color:var(--muted); margin:0 0 .6rem }
-    .cta{ display:flex; gap:10px; flex-wrap:wrap }
-    .btn{ display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 15%, transparent); background:var(--card); color:var(--fg); box-shadow:var(--shadow); font-weight:700 }
-    .btn:hover{ transform:translateY(-1px) }
+        <!-- 5. Selected Projects -->
+        <section id="projects">
+            <h3 class="section-title"><i class="fas fa-flask"></i> Selected Projects</h3>
+            <p>Here are a few projects I've worked on. Click to see details or watch a demo video.</p>
 
-    section{ margin:28px 0 }
-    h2{ margin:0 0 10px; font-size:clamp(20px,2.6vw,28px) }
-    .card{ background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 15%, transparent); border-radius:16px; padding:16px; box-shadow:var(--shadow) }
-    .grid{ display:grid; gap:14px }
-    .grid.cols-2{ grid-template-columns: 1fr }
-    @media(min-width:860px){ .grid.cols-2{ grid-template-columns: 1fr 1fr } }
+            <!-- Project 1 -->
+            <div class="project-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- *** ACTION REQUIRED: Place your video poster at 'assets/images/project1_poster.jpg' *** -->
+                        <!-- *** ACTION REQUIRED: Place your video at 'assets/videos/project1_demo.mp4' *** -->
+                        <video class="project-video" controls poster="assets/images/project1_poster.jpg">
+                            <source src="assets/videos/project1_demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Multimodal Hand-based Biometric System</h4>
+                        <p>
+                            (Based on TPAMI paper) This project involved designing and building a synchronous NIR and visible-light imaging device for real-time capture of dynamic hand biometrics (palm prints, veins, etc.) and developing the corresponding authentication algorithms.
+                        </p>
+                        <a href="#" class="btn btn-secondary btn-sm">[Project Details]</a>
+                    </div>
+                </div>
+            </div>
 
-    ul.inline>li{ margin:4px 0 }
-    .meta{ color:var(--muted); font-size:.95rem }
-    footer{ margin:40px 0 10px; color:var(--muted); font-size:.95rem }
-    code{ background:color-mix(in oklab, var(--fg) 12%, transparent); padding:.1em .35em; border-radius:6px }
-      /* Publications grid */
-    .pub-grid{ display:grid; gap:16px; grid-template-columns: 1fr }
-    @media(min-width:860px){ .pub-grid{ grid-template-columns: 1fr 1fr } }
-    .pub{ display:grid; grid-template-columns: 180px 1fr; gap:14px; align-items:start }
-    .pub img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 12%, transparent); box-shadow:var(--shadow); background:#0a0a0a }
-    .pub h3{ margin:0 0 6px; font-size:clamp(16px,2.2vw,20px) }
-    .pub .meta{ margin:0 0 6px }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <div class="brand">Yitao Qiao</div>
-        <div class="nav">
-          <a href="#about">About</a>
-          <a href="#news">News</a>
-          <a href="#pubs">Publications</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+            <!-- Project 2 -->
+            <div class="project-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- *** ACTION REQUIRED: Place your video poster at 'assets/images/project2_poster.jpg' *** -->
+                        <!-- *** ACTION REQUIRED: Place your video at 'assets/videos/project2_demo.mp4' *** -->
+                        <video class="project-video" controls poster="assets/images/project2_poster.jpg">
+                            <source src="assets/videos/project2_demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Intelligent Airport Vehicle Statistics System</h4>
+                        <p>
+                            (Internship Project) Constructed a vehicle statistics system for Guangdong Airport Baiyun Information Technology Co., Ltd. The system identifies five categories of airport vehicles and uses multi-object tracking to analyze traffic flow, aiding airport operations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- *** ACTION REQUIRED: Place your video poster at 'assets/images/project3_poster.jpg' *** -->
+                        <!-- *** ACTION REQUIRED: Place your video at 'assets/videos/project3_demo.mp4' *** -->
+                        <video class="project-video" controls poster="assets/images/project3_poster.jpg">
+                            <source src="assets/videos/project3_demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Content Safety Assessment for LLMs</h4>
+                        <p>
+                            (Internship Project) Explored content safety assessment for large multimodal models at Alibaba Cloud. Focused on risk taxonomy (e.g., bias, privacy) and "jailbreak" evaluation, assisting in the development of a safety evaluation benchmark.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="avatar">YQ</div>
-      <div>
-        <h1>Yitao Qiao (乔义滔)</h1>
-        <p class="tagline">Computer Vision · Multimodal Learning · Vision–Language–Action (VLA) · Embodied AI</p>
-        <div class="cta">
-          <a class="btn" href="assets/Yitao_Qiao_CV_TPAMI.pdf" target="_blank" rel="noopener">Download CV</a>
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn" href="#pubs">Selected Publications</a>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="about" class="card">
-      <h2>About</h2>
-      <p>
-        I received the B.Eng. and M.Eng. degrees from <strong>South China University of Technology (SCUT)</strong>.
-        My research interests span <strong>computer vision</strong> and <strong>multimodal learning</strong>, with recent focus on
-        <strong>VLA for embodied robots</strong>, <strong>long-video understanding</strong>, and <strong>trustworthy multimodal systems</strong>.
-      </p>
-      <p>
-        I published a <strong>first-author paper in IEEE TPAMI</strong>, with additional works in <strong>IEEE TIFS</strong> and <strong>IJCV</strong>.
-        On the engineering side, I built a <strong>synchronous NIR/visible imaging device</strong> and a <strong>157,500-image multimodal hand dataset</strong> with pixel-level masks, and helped deploy a <strong>real-time multi-object tracking system</strong> for airport operations.
-      </p>
-      <p class="meta">Keywords: VLA · Dexterous Manipulation · Multimodal Video · Robustness & Safety · Perception & Control</p>
-    </section>
+        <!-- Footer -->
+        <footer>
+            <div class="text-center">
+                <p>&copy; 2024 Yitao Qiao. All Rights Reserved.</p>
+                <p>Last Updated: November 2025</p>
+            </div>
+        </footer>
 
-    <section id="news" class="card">
-      <h2>News</h2>
-      <ul class="inline">
-        <li><strong>[YYYY.MM]</strong> — Paper <em>accepted</em> to <strong>IEEE TPAMI</strong> (first author). <span class="meta">Update month/year.</span></li>
-        <li><strong>[YYYY.MM]</strong> — Paper accepted to <strong>IEEE TIFS</strong>.</li>
-        <li><strong>[YYYY.MM]</strong> — Paper accepted to <strong>IJCV</strong>.</li>
-      </ul>
-    </section>
+    </div> <!-- /container -->
 
-    <section id="pubs" class="card">
-      <h2>Selected Publications</h2>
-      <div class="pub-grid">
-        <div class="pub">
-          <img src="assets/papers/tpami_cover.jpg" alt="TPAMI paper cover" />
-          <div>
-            <h3>[Paper Title Placeholder] <span class="meta">TPAMI — First Author</span></h3>
-            <p class="meta">IEEE Transactions on Pattern Analysis and Machine Intelligence.</p>
-            <p>One-sentence summary of the contribution (e.g., multimodal hand analysis / robust biometrics). Replace with your official abstract snippet.</p>
-            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
-          </div>
-        </div>
-        <div class="pub">
-          <img src="assets/papers/tifs_cover.jpg" alt="TIFS paper cover" />
-          <div>
-            <h3>[Paper Title Placeholder] <span class="meta">IEEE TIFS</span></h3>
-            <p class="meta">IEEE Transactions on Information Forensics and Security.</p>
-            <p>One-sentence summary (e.g., robust recognition under poor quality or uncooperative settings). Replace with your official summary.</p>
-            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
-          </div>
-        </div>
-        <div class="pub">
-          <img src="assets/papers/ijcv_cover.jpg" alt="IJCV paper cover" />
-          <div>
-            <h3>[Paper Title Placeholder] <span class="meta">IJCV</span></h3>
-            <p class="meta">International Journal of Computer Vision.</p>
-            <p>One-sentence summary (e.g., computer vision method/benchmark). Replace with your official summary.</p>
-            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
-          </div>
-        </div>
-      </div>
-      <p class="meta">Add more items by copying a <code>.pub</code> block. Place cover images in <code>assets/papers/</code> (4:3 or 16:9 works).</p>
-    </section>
+    <!-- Necessary JavaScript (jQuery and Bootstrap Bundle) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <section id="projects" class="card">
-      <h2>Selected Projects</h2>
-      <div class="grid cols-2">
-        <div>
-          <h3>VLA for Embodied Robots (Reproductions)</h3>
-          <p>Reproduced <em>Pi0</em>, <em>DexGraspVLA</em>, and <em>ManiFlow</em> across Realman/Piper arms and dexterous hands (DexHand‑021; Inspired (Yinshi) Hand); built end‑to‑end evaluation pipelines combining language instructions, perception, and control.</p>
-          <p class="meta">Skills: PyTorch · RL/IL · ROS/MoveIt · calibration · sim2real</p>
-        </div>
-        <div>
-          <h3>Multispectral Hand Imaging & Dataset</h3>
-          <p>Designed a synchronized NIR/visible imaging device and built a 157,500‑image multimodal hand dataset with pixel‑level masks and standardized annotations; trained lightweight real‑time segmentation/normalization models.</p>
-          <p class="meta">Skills: imaging hardware · data collection · annotation tools · model compression</p>
-        </div>
-        <div>
-          <h3>Airport Real‑Time Multi‑Object Tracking</h3>
-          <p>Developed and deployed a real‑time MOT system for airport operations (vehicles/passenger flows); emphasis on stability, latency control, and maintainability under distribution shift.</p>
-          <p class="meta">Skills: tracking · real‑time video · MLOps · metrics & monitoring</p>
-        </div>
-        <div>
-          <h3>Trustworthy Multimodal Evaluation</h3>
-          <p>Practical evaluation of VLM/VLA robustness and safety under distribution shifts, distractors, and physical perturbations; design of stress tests and automatic failure detection.</p>
-          <p class="meta">Skills: benchmarking · robustness · safety · data curation</p>
-        </div>
-      </div>
-    </section>
+    <script>
+        // Simple script to toggle abstract visibility
+        $(document).ready(function(){
+            $('.toggle-abstract').click(function(){
+                var target = $(this).data('target');
+                var abstractDiv = $(target);
+                
+                // Toggle visibility
+                abstractDiv.slideToggle();
+                
+                // Toggle button text
+                if ($(this).text() == '[Abstract]') {
+                    $(this).text('[Close]');
+                } else {
+                    $(this).text('[Abstract]');
+                }
+            });
+        });
+    </script>
 
-    <section class="card">
-      <h2>Experience (selected)</h2>
-      <ul class="inline">
-        <li><strong>Alibaba</strong> — Algorithm Intern (multimodal model evaluation & engineering).</li>
-        <li><strong>SCUT</strong> — Research on vision/biometrics, device & dataset building.</li>
-      </ul>
-    </section>
-
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:scutautojoey@gmail.com">scutautojoey@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/" target="_blank" rel="noopener">github.com/&lt;your-username&gt;</a></p>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Yitao Qiao · Built with GitHub Pages.
-    </footer>
-  </main>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
