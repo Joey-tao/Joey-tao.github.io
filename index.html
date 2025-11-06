@@ -47,6 +47,13 @@
     .meta{ color:var(--muted); font-size:.95rem }
     footer{ margin:40px 0 10px; color:var(--muted); font-size:.95rem }
     code{ background:color-mix(in oklab, var(--fg) 12%, transparent); padding:.1em .35em; border-radius:6px }
+      /* Publications grid */
+    .pub-grid{ display:grid; gap:16px; grid-template-columns: 1fr }
+    @media(min-width:860px){ .pub-grid{ grid-template-columns: 1fr 1fr } }
+    .pub{ display:grid; grid-template-columns: 180px 1fr; gap:14px; align-items:start }
+    .pub img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 12%, transparent); box-shadow:var(--shadow); background:#0a0a0a }
+    .pub h3{ margin:0 0 6px; font-size:clamp(16px,2.2vw,20px) }
+    .pub .meta{ margin:0 0 6px }
   </style>
 </head>
 <body>
@@ -67,9 +74,7 @@
 
   <main class="wrap">
     <section class="hero">
-      <div class="avatar">
-        <img src="assets/profile.jpg" alt="Yitao Qiao profile photo" style="width:100%; height:100%; border-radius:20px; object-fit:cover;">
-      </div>
+      <div class="avatar">YQ</div>
       <div>
         <h1>Yitao Qiao (乔义滔)</h1>
         <p class="tagline">Computer Vision · Multimodal Learning · Vision–Language–Action (VLA) · Embodied AI</p>
@@ -98,20 +103,44 @@
     <section id="news" class="card">
       <h2>News</h2>
       <ul class="inline">
-        <li><strong>Open to PhD opportunities (Fall 2026)</strong> in vision/multimodal/embodied AI.</li>
-        <li>Recent: Reproduced <em>Pi0</em>, <em>DexGraspVLA</em>, and <em>ManiFlow</em> on Realman & Piper arms and dexterous hands (DexHand-021; Inspired (Yinshi) Hand).</li>
-        <li>Recent: Built an imaging device and a 157k-image multimodal dataset for hand analysis; released segmentation & normalization baselines.</li>
+        <li><strong>[YYYY.MM]</strong> — Paper <em>accepted</em> to <strong>IEEE TPAMI</strong> (first author). <span class="meta">Update month/year.</span></li>
+        <li><strong>[YYYY.MM]</strong> — Paper accepted to <strong>IEEE TIFS</strong>.</li>
+        <li><strong>[YYYY.MM]</strong> — Paper accepted to <strong>IJCV</strong>.</li>
       </ul>
     </section>
 
     <section id="pubs" class="card">
       <h2>Selected Publications</h2>
-      <ul class="inline">
-        <li><strong>IEEE TPAMI</strong> — first author. Topic: vision/biometrics (details in CV).</li>
-        <li><strong>IEEE TIFS</strong> — biometrics/robust recognition.</li>
-        <li><strong>IJCV</strong> — computer vision.</li>
-      </ul>
-      <p class="meta">Full list and PDFs will be added soon; see CV for details.</p>
+      <div class="pub-grid">
+        <div class="pub">
+          <img src="assets/papers/tpami_cover.jpg" alt="TPAMI paper cover" />
+          <div>
+            <h3>[Paper Title Placeholder] <span class="meta">TPAMI — First Author</span></h3>
+            <p class="meta">IEEE Transactions on Pattern Analysis and Machine Intelligence.</p>
+            <p>One-sentence summary of the contribution (e.g., multimodal hand analysis / robust biometrics). Replace with your official abstract snippet.</p>
+            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
+          </div>
+        </div>
+        <div class="pub">
+          <img src="assets/papers/tifs_cover.jpg" alt="TIFS paper cover" />
+          <div>
+            <h3>[Paper Title Placeholder] <span class="meta">IEEE TIFS</span></h3>
+            <p class="meta">IEEE Transactions on Information Forensics and Security.</p>
+            <p>One-sentence summary (e.g., robust recognition under poor quality or uncooperative settings). Replace with your official summary.</p>
+            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
+          </div>
+        </div>
+        <div class="pub">
+          <img src="assets/papers/ijcv_cover.jpg" alt="IJCV paper cover" />
+          <div>
+            <h3>[Paper Title Placeholder] <span class="meta">IJCV</span></h3>
+            <p class="meta">International Journal of Computer Vision.</p>
+            <p>One-sentence summary (e.g., computer vision method/benchmark). Replace with your official summary.</p>
+            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
+          </div>
+        </div>
+      </div>
+      <p class="meta">Add more items by copying a <code>.pub</code> block. Place cover images in <code>assets/papers/</code> (4:3 or 16:9 works).</p>
     </section>
 
     <section id="projects" class="card">
@@ -151,8 +180,202 @@
     <section id="contact" class="card">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:scutautojoey@gmail.com">scutautojoey@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/" target="_blank" rel="noopener">github.com/&lt;your-username&gt;</a> · Google Scholar: <a href="#" target="_blank" rel="noopener">(add link)</a></p>
-      <p class="meta">Add a profile photo as <code>assets/profile.jpg</code> and a social preview image as <code>assets/preview.png</code>.</p>
+      <p>GitHub: <a href="https://github.com/" target="_blank" rel="noopener">github.com/&lt;your-username&gt;</a></p>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Yitao Qiao · Built with GitHub Pages.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yitao Qiao | Computer Vision · Multimodal · Embodied AI</title>
+  <meta name="description" content="Personal homepage of Yitao Qiao — computer vision, multimodal learning, vision-language-action (VLA), embodied AI, long-video understanding, trustworthy multimodal systems." />
+  <meta property="og:title" content="Yitao Qiao — CV · Multimodal · Embodied AI" />
+  <meta property="og:description" content="B.Eng. & M.Eng. (SCUT). TPAMI first-author. VLA & embodied robotics, long-video understanding, trustworthy multimodal systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/preview.png" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg:#0b0c10; --fg:#e9ecef; --muted:#adb5bd; --accent:#67e8f9; --accent2:#a78bfa; --card:#121319; --link:#7dd3fc;
+      --shadow:0 10px 25px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#ffffff; --fg:#111827; --muted:#6b7280; --card:#f8fafc; --link:#2563eb; --accent:#06b6d4; --accent2:#7c3aed; }
+    }
+    *{ box-sizing:border-box }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji" }
+    a{ color:var(--link); text-decoration:none }
+    a:hover{ text-decoration:underline }
+    .wrap{ max-width:1000px; margin:0 auto; padding:24px }
+    header{ position:sticky; top:0; backdrop-filter:saturate(180%) blur(10px); background:color-mix(in oklab, var(--bg) 85%, transparent); border-bottom:1px solid color-mix(in oklab, var(--fg) 15%, transparent); z-index:10 }
+    nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0 }
+    .brand{ font-weight:700; letter-spacing:.2px }
+    .nav a{ margin-left:14px; font-weight:600; opacity:.9 }
+
+    .hero{ display:grid; grid-template-columns: 140px 1fr; gap:20px; align-items:center; padding:28px 0 8px }
+    .avatar{ width:120px; height:120px; border-radius:20px; background:linear-gradient(120deg,var(--accent),var(--accent2)); box-shadow:var(--shadow); display:grid; place-items:center; color:#000; font-weight:800 }
+    .hero h1{ margin:.1rem 0 .2rem; font-size:clamp(24px,3.2vw,36px) }
+    .hero .tagline{ color:var(--muted); margin:0 0 .6rem }
+    .cta{ display:flex; gap:10px; flex-wrap:wrap }
+    .btn{ display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 15%, transparent); background:var(--card); color:var(--fg); box-shadow:var(--shadow); font-weight:700 }
+    .btn:hover{ transform:translateY(-1px) }
+
+    section{ margin:28px 0 }
+    h2{ margin:0 0 10px; font-size:clamp(20px,2.6vw,28px) }
+    .card{ background:var(--card); border:1px solid color-mix(in oklab, var(--fg) 15%, transparent); border-radius:16px; padding:16px; box-shadow:var(--shadow) }
+    .grid{ display:grid; gap:14px }
+    .grid.cols-2{ grid-template-columns: 1fr }
+    @media(min-width:860px){ .grid.cols-2{ grid-template-columns: 1fr 1fr } }
+
+    ul.inline>li{ margin:4px 0 }
+    .meta{ color:var(--muted); font-size:.95rem }
+    footer{ margin:40px 0 10px; color:var(--muted); font-size:.95rem }
+    code{ background:color-mix(in oklab, var(--fg) 12%, transparent); padding:.1em .35em; border-radius:6px }
+      /* Publications grid */
+    .pub-grid{ display:grid; gap:16px; grid-template-columns: 1fr }
+    @media(min-width:860px){ .pub-grid{ grid-template-columns: 1fr 1fr } }
+    .pub{ display:grid; grid-template-columns: 180px 1fr; gap:14px; align-items:start }
+    .pub img{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; border:1px solid color-mix(in oklab, var(--fg) 12%, transparent); box-shadow:var(--shadow); background:#0a0a0a }
+    .pub h3{ margin:0 0 6px; font-size:clamp(16px,2.2vw,20px) }
+    .pub .meta{ margin:0 0 6px }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">Yitao Qiao</div>
+        <div class="nav">
+          <a href="#about">About</a>
+          <a href="#news">News</a>
+          <a href="#pubs">Publications</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="avatar">YQ</div>
+      <div>
+        <h1>Yitao Qiao (乔义滔)</h1>
+        <p class="tagline">Computer Vision · Multimodal Learning · Vision–Language–Action (VLA) · Embodied AI</p>
+        <div class="cta">
+          <a class="btn" href="assets/Yitao_Qiao_CV_TPAMI.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn" href="#pubs">Selected Publications</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p>
+        I received the B.Eng. and M.Eng. degrees from <strong>South China University of Technology (SCUT)</strong>.
+        My research interests span <strong>computer vision</strong> and <strong>multimodal learning</strong>, with recent focus on
+        <strong>VLA for embodied robots</strong>, <strong>long-video understanding</strong>, and <strong>trustworthy multimodal systems</strong>.
+      </p>
+      <p>
+        I published a <strong>first-author paper in IEEE TPAMI</strong>, with additional works in <strong>IEEE TIFS</strong> and <strong>IJCV</strong>.
+        On the engineering side, I built a <strong>synchronous NIR/visible imaging device</strong> and a <strong>157,500-image multimodal hand dataset</strong> with pixel-level masks, and helped deploy a <strong>real-time multi-object tracking system</strong> for airport operations.
+      </p>
+      <p class="meta">Keywords: VLA · Dexterous Manipulation · Multimodal Video · Robustness & Safety · Perception & Control</p>
+    </section>
+
+    <section id="news" class="card">
+      <h2>News</h2>
+      <ul class="inline">
+        <li><strong>[YYYY.MM]</strong> — Paper <em>accepted</em> to <strong>IEEE TPAMI</strong> (first author). <span class="meta">Update month/year.</span></li>
+        <li><strong>[YYYY.MM]</strong> — Paper accepted to <strong>IEEE TIFS</strong>.</li>
+        <li><strong>[YYYY.MM]</strong> — Paper accepted to <strong>IJCV</strong>.</li>
+      </ul>
+    </section>
+
+    <section id="pubs" class="card">
+      <h2>Selected Publications</h2>
+      <div class="pub-grid">
+        <div class="pub">
+          <img src="assets/papers/tpami_cover.jpg" alt="TPAMI paper cover" />
+          <div>
+            <h3>[Paper Title Placeholder] <span class="meta">TPAMI — First Author</span></h3>
+            <p class="meta">IEEE Transactions on Pattern Analysis and Machine Intelligence.</p>
+            <p>One-sentence summary of the contribution (e.g., multimodal hand analysis / robust biometrics). Replace with your official abstract snippet.</p>
+            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
+          </div>
+        </div>
+        <div class="pub">
+          <img src="assets/papers/tifs_cover.jpg" alt="TIFS paper cover" />
+          <div>
+            <h3>[Paper Title Placeholder] <span class="meta">IEEE TIFS</span></h3>
+            <p class="meta">IEEE Transactions on Information Forensics and Security.</p>
+            <p>One-sentence summary (e.g., robust recognition under poor quality or uncooperative settings). Replace with your official summary.</p>
+            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
+          </div>
+        </div>
+        <div class="pub">
+          <img src="assets/papers/ijcv_cover.jpg" alt="IJCV paper cover" />
+          <div>
+            <h3>[Paper Title Placeholder] <span class="meta">IJCV</span></h3>
+            <p class="meta">International Journal of Computer Vision.</p>
+            <p>One-sentence summary (e.g., computer vision method/benchmark). Replace with your official summary.</p>
+            <p class="links"><a href="#">PDF</a> · <a href="#">Code</a> · <a href="#">Project</a></p>
+          </div>
+        </div>
+      </div>
+      <p class="meta">Add more items by copying a <code>.pub</code> block. Place cover images in <code>assets/papers/</code> (4:3 or 16:9 works).</p>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Selected Projects</h2>
+      <div class="grid cols-2">
+        <div>
+          <h3>VLA for Embodied Robots (Reproductions)</h3>
+          <p>Reproduced <em>Pi0</em>, <em>DexGraspVLA</em>, and <em>ManiFlow</em> across Realman/Piper arms and dexterous hands (DexHand‑021; Inspired (Yinshi) Hand); built end‑to‑end evaluation pipelines combining language instructions, perception, and control.</p>
+          <p class="meta">Skills: PyTorch · RL/IL · ROS/MoveIt · calibration · sim2real</p>
+        </div>
+        <div>
+          <h3>Multispectral Hand Imaging & Dataset</h3>
+          <p>Designed a synchronized NIR/visible imaging device and built a 157,500‑image multimodal hand dataset with pixel‑level masks and standardized annotations; trained lightweight real‑time segmentation/normalization models.</p>
+          <p class="meta">Skills: imaging hardware · data collection · annotation tools · model compression</p>
+        </div>
+        <div>
+          <h3>Airport Real‑Time Multi‑Object Tracking</h3>
+          <p>Developed and deployed a real‑time MOT system for airport operations (vehicles/passenger flows); emphasis on stability, latency control, and maintainability under distribution shift.</p>
+          <p class="meta">Skills: tracking · real‑time video · MLOps · metrics & monitoring</p>
+        </div>
+        <div>
+          <h3>Trustworthy Multimodal Evaluation</h3>
+          <p>Practical evaluation of VLM/VLA robustness and safety under distribution shifts, distractors, and physical perturbations; design of stress tests and automatic failure detection.</p>
+          <p class="meta">Skills: benchmarking · robustness · safety · data curation</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Experience (selected)</h2>
+      <ul class="inline">
+        <li><strong>Alibaba</strong> — Algorithm Intern (multimodal model evaluation & engineering).</li>
+        <li><strong>SCUT</strong> — Research on vision/biometrics, device & dataset building.</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:scutautojoey@gmail.com">scutautojoey@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/" target="_blank" rel="noopener">github.com/&lt;your-username&gt;</a></p>
     </section>
 
     <footer>
